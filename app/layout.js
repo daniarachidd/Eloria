@@ -13,6 +13,10 @@ const geistSans = Geist({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Eloria</title>
+        <meta name="description" content="Shop the latest collections at Dania" />
+      </head>
       <body
         className={`${geistSans.variable} antialiased`}
       >
