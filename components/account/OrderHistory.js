@@ -29,7 +29,7 @@ const OrderHistory = () => {
     if (orders.length === 0) return (
       <div className="flex flex-col items-center justify-center py-16">
         
-        <p className="text-gray-500 text-lg mb-4">You haven't made any orders yet</p>
+        <p className="text-gray-500 text-lg mb-4">You havennpm list react-icons't made any orders yet</p>
         <Link
           href="/products"
           className="bg-yellow-500 text-neutral-900 font-semibold px-6 py-3 rounded-md hover:bg-yellow-600 transition"
