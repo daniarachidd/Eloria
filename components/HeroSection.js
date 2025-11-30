@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import Link from "next/link";
 
 function HeroSection() {
     return (
@@ -16,12 +17,12 @@ function HeroSection() {
                     <p className="text-lg sm:text-xl  text-neutral-700 mb-6 sm:mb-8">
                         Experience our curated collection of contemporary apparel, designed for the discerning individual.
                     </p>
-                    <a
+                    <Link
                         href="/products"
                         className="inline-block bg-yellow-500 text-neutral-900 px-6 sm:px-8 sm:py-4 py-3 rounded-lg text-md sm:text-lg font-bold uppercase tracking-wider hover:bg-yellow-600 transition-colors shadow-lg transform hover:scale-105"
                     >
                         Discover More
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Right Content */}

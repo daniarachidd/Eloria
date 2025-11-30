@@ -1,6 +1,6 @@
 'use client'
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-
+import Link from "next/link";
 const AppFooter = () => {
     return (
         <footer className="bg-stone-900 text-gray-300 border-t border-stone-700 mt-20">
@@ -12,10 +12,11 @@ const AppFooter = () => {
 
                     {/* Social Icons */}
                     <div className="flex space-x-4 mt-6">
-                        <a href="#" className="hover:text-amber-400 transition-colors"><FaFacebookF className="w-5 h-5" /></a>
-                        <a href="#" className="hover:text-amber-400 transition-colors"><FaTwitter className="w-5 h-5" /></a>
-                        <a href="#" className="hover:text-amber-400 transition-colors"><FaInstagram className="w-5 h-5" /></a>
-                        <a href="#" className="hover:text-amber-400 transition-colors"><FaLinkedinIn className="w-5 h-5" /></a>
+                        
+                        <Link href="#" className="hover:text-amber-400 transition-colors"><FaFacebookF className="w-5 h-5" /> </Link>
+                        <Link href="#" className="hover:text-amber-400 transition-colors"><FaTwitter className="w-5 h-5" /></Link>
+                        <Link href="#" className="hover:text-amber-400 transition-colors"><FaInstagram className="w-5 h-5" /></Link>
+                        <Link href="#" className="hover:text-amber-400 transition-colors"><FaLinkedinIn className="w-5 h-5" /></Link>
                     </div>
                 </div>
 
@@ -26,8 +27,8 @@ const AppFooter = () => {
                         Shop
                     </h3>
                     <ul className="space-y-3 text-sm">
-                        <li><a href="/" className="hover:text-amber-400 transition-colors">Home</a></li>
-                        <li><a href="/products" className="hover:text-amber-400 transition-colors">New Arrivals</a></li>
+                        <li><Link href="/" className="hover:text-amber-400 transition-colors">Home</Link></li>
+                        <li><Link href="/products" className="hover:text-amber-400 transition-colors">New Arrivals</Link></li>
                         
                     </ul>
                 </div>
@@ -38,10 +39,10 @@ const AppFooter = () => {
                         Customer Care
                     </h3>
                     <ul className="space-y-3 text-sm">
-                        <li><a href="/account" className="hover:text-amber-400 transition-colors">My Account</a></li>
-                        <li><a href="/account?menu=My%20Orders" className="hover:text-amber-400 transition-colors">Orders & Shipping</a></li>
-                        <li><a href="/account?menu=My%20Wishlist" className="hover:text-amber-400 transition-colors">Wishlist</a></li>
-                        {/* <li><a href="#" className="hover:text-amber-400 transition-colors">Returns</a></li> */}
+                        <li><Link href="/account" className="hover:text-amber-400 transition-colors">My Account</Link></li>
+                        <li><Link href="/account?menu=My%20Orders" className="hover:text-amber-400 transition-colors">Orders & Shipping</Link></li>
+                        <li><Link href="/account?menu=My%20Wishlist" className="hover:text-amber-400 transition-colors">Wishlist</Link></li>
+                        
                     </ul>
                 </div>
 
@@ -70,9 +71,9 @@ const AppFooter = () => {
                 <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between text-sm text-gray-500">
                     <p>© {new Date().getFullYear()} Eloria. All rights reserved.</p>
                     <div className="flex space-x-6 mt-2 md:mt-0">
-                        <a href="#" className="hover:text-amber-400 transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-amber-400 transition-colors">Terms of Service</a>
-                        <a href="#" className="hover:text-amber-400 transition-colors">Contact</a>
+                        <Link href="#" className="hover:text-amber-400 transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-amber-400 transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-amber-400 transition-colors">Contact</Link>
                     </div>
                 </div>
             </div>

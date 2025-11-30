@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import CartSidebar from "./CartSidebar";
 import { useCartStore } from "@/app/store/cartStore";
 import {useRouter} from "next/navigation";
+import Link from "next/link";
 
 function AppHeader() {
     const router = useRouter();
@@ -138,9 +139,9 @@ function AppHeader() {
             <nav className=" bg-stone-800 hidden md:block">
                 <div className="max-w-7xl mx-auto px-4 py-2">
                     <ul className="flex justify-center space-x-12">
-                        <li><a href="/" className="text-sm uppercase tracking-wider font-medium hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><Link href="/" className="text-sm uppercase tracking-wider font-medium hover:text-amber-400 transition-colors">Home</Link></li>
 
-                        <li><a href="/products" className="text-sm uppercase tracking-wider font-medium hover:text-amber-400 transition-colors">New Arrivals</a></li>
+                        <li><Link href="/products" className="text-sm uppercase tracking-wider font-medium hover:text-amber-400 transition-colors">New Arrivals</Link></li>
                         <li>
                             <button
                                 className="text-sm uppercase tracking-wider font-medium hover:text-amber-400 transition-colors"
@@ -149,7 +150,6 @@ function AppHeader() {
                                 Collections
                             </button>
                         </li>
-                        {/* <li><a href="/sale" className="text-sm uppercase tracking-wider font-medium text-amber-500 hover:text-white transition-colors" >Sale</a></li> */}
                     </ul>
                 </div>
             </nav>
@@ -163,22 +163,22 @@ function AppHeader() {
                     <ul className="flex flex-col px-4 space-y-4 py-6">
                         <li className="font-serif tracking-widest uppercase font-bold"> Eloria</li>
                         <li>
-                            <a
+                            <Link
                                 href="/"
                                 className="text-sm uppercase tracking-wider font-medium"
                                 onClick={toggleMobileMenu}
                             >
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 href="/products"
                                 className="text-sm uppercase tracking-wider font-medium"
                                 onClick={toggleMobileMenu}
                             >
                                 New Arrivals
-                            </a>
+                            </Link>
                         </li>
                         <li>
                             <button
@@ -198,14 +198,14 @@ function AppHeader() {
 
                     {/* social media icons */}
                     <div className="flex ml-4 space-x-4 mt-8">
-                        <a
+                        <Link
                             href="https://facebook.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-neutral-900"
                         >
                             <FaFacebookF className="w-5 h-5" />
-                        </a>
+                        </Link>
                         <FaTwitter className="w-5 h-5" />
                         <FaInstagram className="w-5 h-5 hover:text-amber-500" />
                         <FaLinkedinIn className="w-5 h-5" />
