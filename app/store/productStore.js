@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { supabase } from '@/app/utils/supabaseClient';
 export const useProductStore = create((set, get) => ({
   products: [],
+  search: '',
 
   filters: {
     collections: [],
@@ -11,16 +12,32 @@ export const useProductStore = create((set, get) => ({
     priceRanges: [],
   },
 
-  setFilter: (type, value) => {
-    const current = get().filters[type];
-    set({
-      filters: {
-        ...get().filters,
-        [type]: current.includes(value)
-          ? current.filter((v) => v !== value)
-          : [...current, value],
+  // setFilter: (type, value) => {
+  //   const current = get().filters[type];
+  //   set({
+  //     filters: {
+  //       ...get().filters,
+  //       [type]: current.includes(value)
+  //         ? current.filter((v) => v !== value)
+  //         : [...current, value],
+  //     }
+  //   })
+  // },
+
+  setFilter: (key, value) => {
+    set((state) => {
+      const filters = { ...state.filters };
+
+      if (key === "search") {
+        filters.search = value;
+      } else if (filters[key].includes(value)) {
+        filters[key] = filters[key].filter((v) => v !== value);
+      } else {
+        filters[key].push(value);
       }
-    })
+
+      return { filters };
+    });
   },
 
   clearAllFilters: () => set({
@@ -48,6 +65,10 @@ export const useProductStore = create((set, get) => ({
     if (filters.subcollections.length > 0) {
       query = query.in('subcollection_id', filters.subcollections);
     }
+    if (filters.search && filters.search.trim() !== "") {
+      query = query.ilike("name", `%${filters.search}%`);
+    }
+
     if (filters.collections.length > 0) {
       const { data: subcols } = await supabase
         .from('subcollections')
