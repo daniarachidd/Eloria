@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { supabase } from "../utils/supabaseClient";
 import AccountMenu from "@/components/account/AccountMenu";
 import PersonalDetails from "@/components/account/PersonalDetails";
@@ -101,7 +101,7 @@ export default function AccountPage() {
 
     if (user) {
         return (
-            <>
+            <Suspense fallback={<div>Loading...</div>}>
                 <div className="hidden md:flex flex-col md:flex-row justify-center md:mt-8 mx-4 md:mx-20 max-w-6xl w-full">
                     {/* Left Column: Account Menu */}
                     <div className="md:w-1/3 mx-2 md:mr-6 mb-6 md:mb-0">
@@ -144,11 +144,12 @@ export default function AccountPage() {
 
 
                 </div>
-            </>
+            </Suspense>
         );
     }
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <div className="flex flex-col items-center min-h-screen p-6 text-black">
             <h1 className="text-2xl font-semibold mb-6 text-neutral-900">{isSignUp ? 'Sign Up' : 'Sign In'}</h1>
 
@@ -183,5 +184,6 @@ export default function AccountPage() {
 
             {message && <p className="mt-4 text-sm text-gray-600">{message}</p>}
         </div>
+        </Suspense>
     );
 }
